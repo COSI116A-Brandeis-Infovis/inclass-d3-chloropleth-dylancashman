@@ -9,11 +9,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    svg {
+      /*position: absolute;*/
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #boundary path {
+      stroke-dasharray: 3 5;
+    }
+
+    path {
+      fill: none;
+      stroke: black;
+    }
+  </style>
+  <svg viewbox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
+    <g id="boundary"></g>
+    <g id="states"></g>
+  </svg>
   <title>COSI 116A Map example, courtesy of Maptime Amsterdam meetup: Geopolitics, Borders &amp; D3.js!</title>
 </head>
 <body>
 	<h1>United States in <span id="year">1790</span></h1>
+  <div id='year-selector-div'>
+    <input type="range" id="year-selector" name="year-selector" max=1910 min=1790 value=1790 step=10>
+    <label for="year-selector">Select Year:</label>
+  </div>
 
+  <script src="static/colors.js"></script>
   <script src="js/renderMap.js"></script>
 </body>
 </html>
